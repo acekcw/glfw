@@ -2,7 +2,7 @@
 project "GLFW"
 	kind "StaticLib"
 	language "C"	
-	warnings "off"
+	warnings "Off"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -22,7 +22,7 @@ project "GLFW"
 
 	filter "system:windows"
 		systemversion "latest"
-		staticruntime "off"
+		staticruntime "Off"
 
 		files
 		{
@@ -45,13 +45,15 @@ project "GLFW"
 
 	filter "configurations:Debug"
 		runtime "Debug"
-		symbols "on"
+		symbols "On"
+        optimize "Off"
 
 	filter "configurations:Release"
 		runtime "Release"
-		optimize "speed"
+		symbols "On"
+        optimize "Speed"
 
     filter "configurations:Dist"
 		runtime "Release"
-		optimize "speed"
-        symbols "off"
+		symbols "Off"
+        optimize "Speed"
